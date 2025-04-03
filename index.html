@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Калькулятор кільця</title>
+	<script>
+		function calculateRingArea() {
+			var outerRadius = parseFloat(document.getElementById("outerRadius").value);
+			var innerRadius = parseFloat(document.getElementById("innerRadius").value);
+
+			if (outerRadius <= innerRadius) {
+				document.getElementById("result").innerHTML = "Помилка: Зовнішній радіус має бути більшим за внутрішній.";
+			}
+			else {
+			var area = Math.PI * (Math.pow(outerRadius, 2) - Math.pow(innerRadius, 2));
+			document.getElementById("result").innerHTML = "Площа кільця: " + area.toFixed(2);}
+		}
+	</script>
+</head>
+<body>
+	<h1>Кальукулятор площі кільця</h1>
+	<label>Зовнішній радіус (R): </label>
+	<input type="number" id="outerRadius" step="any"><br>
+	<label>Внутрішній радіус (r): </label>
+	<input type="number" id="innerRadius" step="any"><br>
+	<button onclick="calculateRingArea()">Обчислити</button>
+	<p id="result">Площа кільця: 0</p>
+</body>
+</html>
